@@ -78,30 +78,30 @@
 
         <tr>
           <td>rock</td>
-          <td>3</td>
-          <td>0</td>
-          <td>1</td>
+          <td><%= @rock.sum(:user_wins) %></td>
+          <td><%= @rock.sum(:computer_wins) %></td>
+          <td><%= @rock.sum(:ties) %></td>
         </tr>
 
         <tr>
           <td>paper</td>
-          <td>0</td>
-          <td>1</td>
-          <td>1</td>
+          <td><%= @paper.sum(:user_wins) %></td>
+          <td><%= @paper.sum(:computer_wins) %></td>
+          <td><%= @paper.sum(:ties) %></td>
         </tr>
 
         <tr>
           <td>scissors</td>
-          <td>1</td>
-          <td>2</td>
-          <td>2</td>
+          <td><%= @scissors.sum(:user_wins) %></td>
+          <td><%= @scissors.sum(:computer_wins) %></td>
+          <td><%= @scissors.sum(:ties) %></td>
         </tr>
 
         <tr>
           <th>Total</th>
-          <th>4</th>
-          <th>3</th>
-          <th>4</th>
+          <td><%= @all_moves.sum(:user_wins) %></td>
+          <td><%= @all_moves.sum(:computer_wins) %></td>
+          <td><%= @all_moves.sum(:ties) %></td>
         </tr>
       </table>
     </div>

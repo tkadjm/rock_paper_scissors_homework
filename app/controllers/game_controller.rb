@@ -45,6 +45,9 @@ class GameController < ApplicationController
     m.save
 
     @all_moves = Move.all
+    @rock =     Move.where(  { :user_move => "rock"    } )
+    @paper =    Move.where(  { :user_move => "paper"   } )
+    @scissors = Move.where(  { :user_move => "scissors"})
 
     render("results.html.erb")
 
