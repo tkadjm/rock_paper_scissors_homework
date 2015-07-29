@@ -42,7 +42,6 @@ class GameController < ApplicationController
       m.computer_wins = 0
       m.ties = 1
     end
-
     m.save
 
     @all_moves = Move.all

@@ -8,7 +8,7 @@
 
 <h1>test</h1>
 
-<!-- <div class="container">
+<div class="container">
   <hr>
 
   <div class="row">
@@ -33,10 +33,10 @@
       <div class="col-md-6">
         <div class="panel panel-success">
           <div class="panel-heading">
-            <h3 class="panel-title text-center">You played rock.</h3>
+            <h3 class="panel-title text-center">You played <%= @user_move %>.</h3>
           </div>
           <div class="panel-body">
-            <img src="/assets/images/rock.png" class="img-responsive">
+            <img src="/assets/images/<%= @user_move%>.png" class="img-responsive">
           </div>
         </div>
       </div>
@@ -44,10 +44,10 @@
       <div class="col-md-6">
         <div class="panel panel-danger">
           <div class="panel-heading">
-            <h3 class="panel-title text-center">The computer played scissors.</h3>
+            <h3 class="panel-title text-center">The computer played <%= @computer_move %>.</h3>
           </div>
           <div class="panel-body">
-            <img src="/assets/images/scissors.png" class="img-responsive">
+            <img src="/assets/images/<%= @computer_move %>.png" class="img-responsive">
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="well">
-          <h1 class="text-center">You won!</h1>
+          <h1 class="text-center">You <%= @outcome %>!</h1>
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@
       <div class="panel-heading">
         <h5 class="panel-title">
           Complete history
-          (11)
+          (<%= @all_moves.count()%>)
         </h5>
       </div>
 
@@ -124,89 +124,22 @@
           <th>Tie</th>
         </tr>
 
+        <% @all_moves.each do |zebra| %>
           <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
+            <td><%=zebra.user_move%></td>
+            <td><%=zebra.computer_move%></td>
+            <td><%=zebra.user_wins%></td>
+            <td><%=zebra.computer_wins%></td>
+            <td><%=zebra.ties%></td>
           </tr>
-          <tr>
-            <td>rock</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>paper</td>
-            <td>paper</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>paper</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>paper</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
+        <% end %>
+
       </table>
     </div>
   </div>
 </div>
 
-</div> -->
+</div>
 
 </body>
 </html>
